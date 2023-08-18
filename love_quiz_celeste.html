@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celeste & Miguel's Love Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #ffccff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #ff66b2;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .heart {
+            color: #ff66b2;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff66b2;
+            color: white;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #ff3385;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Celeste & Miguel's Love Quiz</h1>
+        <p>Hey <span class="heart">Celeste</span>, my love! Let's embark on a journey down memory lane and celebrate our amazing love story. Answer these sweet questions, and let's cherish our beautiful moments together.</p>
+        <p>Question 1: What's one thing you absolutely adore about our relationship?</p>
+        <input type="text" id="answer1" placeholder="Your answer here"><br><br>
+        <p>Question 2: Which date night is your all-time favorite, and why?</p>
+        <input type="text" id="answer2" placeholder="Your answer here"><br><br>
+        <p>Question 3: What's the most cherished memory from our first trip together?</p>
+        <input type="text" id="answer3" placeholder="Your answer here"><br><br>
+        <button class="btn" onclick="showResults()">Reveal Our Love</button>
+        <div id="results" style="display: none;">
+            <p>My Dearest <span class="heart">Celeste</span>,</p>
+            <p>Your answers have filled my heart with joy. Our journey together has been nothing short of magical. You are the beating of my heart, the love of my life, and my partner in all adventures.</p>
+            <p>Forever and always,</p>
+            <p><span class="heart">Miguel</span></p>
+        </div>
+    </div>
+
+    <script>
+        function showResults() {
+            var answer1 = document.getElementById("answer1").value;
+            var answer2 = document.getElementById("answer2").value;
+            var answer3 = document.getElementById("answer3").value;
+            var resultsDiv = document.getElementById("results");
+            
+            resultsDiv.innerHTML = `
+                <p>My Dearest <span class="heart">Celeste</span>,</p>
+                <p>Your answers have filled my heart with joy. Our journey together has been nothing short of magical. You are the beating of my heart, the love of my life, and my partner in all adventures.</p>
+                <p>Forever and always,</p>
+                <p><span class="heart">Miguel</span></p>
+            `;
+            resultsDiv.style.display = "block";
+            
+            // Save answers to local storage (optional)
+            localStorage.setItem("answer1", answer1);
+            localStorage.setItem("answer2", answer2);
+            localStorage.setItem("answer3", answer3);
+        }
+
+        // Load saved answers (optional)
+        document.getElementById("answer1").value = localStorage.getItem("answer1");
+        document.getElementById("answer2").value = localStorage.getItem("answer2");
+        document.getElementById("answer3").value = localStorage.getItem("answer3");
+    </script>
+</body>
+</html>
